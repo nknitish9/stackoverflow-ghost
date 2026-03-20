@@ -49,14 +49,14 @@ A full-stack Next.js chatbot with:
 
 ## Tech Stack
 
-| Layer | Choice |
-|-------|--------|
-| Framework | Next.js 14 (App Router) |
-| Styling | Tailwind CSS |
-| AI | Groq API (llama-3.3-70b-versatile) |
-| Markdown | react-markdown + react-syntax-highlighter |
-| Animations | Framer Motion + CSS keyframes |
-| Deployment | Vercel |
+| Layer         | Choice                                    |
+|---------------|-------------------------------------------|
+| Framework     | Next.js 14 (App Router)                   |
+| Styling       | Tailwind CSS                              |
+| AI            | Groq API (llama-3.3-70b-versatile)        |
+| Markdown      | react-markdown + react-syntax-highlighter |
+| Animations    | Framer Motion + CSS keyframes             |
+| Deployment    | Vercel                                    |
 
 ---
 
