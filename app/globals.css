@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --so-orange: #F48024;
+  --ghost-bg: #0D0D0D;
+  --ghost-surface: #141414;
+  --ghost-card: #1A1A1A;
+  --ghost-border: #2A2A2A;
+  --ghost-text: #E8E0D4;
+  --ghost-muted: #6B6460;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--ghost-bg);
+  color: var(--ghost-text);
+  font-family: 'IBM Plex Mono', monospace;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F48024;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2A2A2A #0D0D0D;
+}
+
+/* Selection */
+::selection {
+  background: #F4802440;
+  color: #F48024;
+}
+
+/* Code blocks inside markdown */
+.prose-ghost pre {
+  background: #0A0A0A !important;
+  border: 1px solid #2A2A2A;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+}
+
+.prose-ghost code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  background: #1A1A1A;
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+  color: #F48024;
+}
+
+.prose-ghost pre code {
+  background: transparent;
+  padding: 0;
+  color: #E8E0D4;
+}
+
+.prose-ghost p {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+}
+
+.prose-ghost ul, .prose-ghost ol {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.prose-ghost li {
+  margin: 0.25rem 0;
+}
+
+.prose-ghost strong {
+  color: #F48024;
+  font-weight: 600;
+}
+
+.prose-ghost a {
+  color: #6CB4E4;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+}
+
+.prose-ghost a:hover {
+  color: #F48024;
+}
+
+.prose-ghost blockquote {
+  border-left: 3px solid #F48024;
+  padding-left: 1rem;
+  color: #6B6460;
+  font-style: italic;
+  margin: 0.75rem 0;
+}
+
+.prose-ghost h1, .prose-ghost h2, .prose-ghost h3 {
+  color: #E8E0D4;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-ghost hr {
+  border-color: #2A2A2A;
+  margin: 1rem 0;
+}
+
+.prose-ghost table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.85em;
+}
+
+.prose-ghost th, .prose-ghost td {
+  border: 1px solid #2A2A2A;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.prose-ghost th {
+  background: #141414;
+  color: #F48024;
+  font-weight: 500;
+}
+
+/* Noise overlay */
+.noise-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Glow scan line */
+.scanline::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #F4802415, #F4802430, #F4802415, transparent);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 50;
+}
+
+@keyframes scanline {
+  0% { top: -2px; }
+  100% { top: 100vh; }
+}
+
+/* Upvote button */
+.upvote-btn:hover svg {
+  fill: #F48024;
+  stroke: #F48024;
+}
+
+/* Focus visible for accessibility */
+button:focus-visible, a:focus-visible, textarea:focus-visible {
+  outline: 2px solid #F48024;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
